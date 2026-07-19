@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Unbreakable Legacy: Kurdish Women Who Shaped History</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  :root{
+    --paper:#fbf7f4;
+    --paper-deep:#f4e8e1;
+    --ink:#2a211e;
+    --ink-soft:#6e5c56;
+    --wine:#8c3b47;
+    --wine-deep:#6b2a34;
+    --gold:#bfa06b;
+    --line:rgba(140,59,71,0.16);
+  }
+
+  body{
+    font-family:'Newsreader', serif;
+    font-size:17px;
+    line-height:1.75;
+    color:var(--ink);
+    background:var(--paper);
+    scroll-behavior:smooth;
+  }
+
+  .icon{ width:1em; height:1em; display:inline-block; vertical-align:-0.15em; fill:none; stroke:currentColor; stroke-width:1.3; stroke-linecap:round; stroke-linejoin:round; }
+
+  .scroll-indicator{ position:fixed; top:0; left:0; width:100%; height:3px; background:rgba(140,59,71,0.08); z-index:1000; }
+  .scroll-progress{ height:100%; width:0%; background:linear-gradient(90deg, var(--wine), var(--gold)); transition:width .2s ease; }
+
+  .article-container{ max-width:1100px; margin:0 auto; background:var(--paper); box-shadow:0 0 60px rgba(140,59,71,0.06); }
+
+  /* Hero */
+  .hero-cover{
+    min-height:100vh;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; position:relative; overflow:hidden;
+    background:radial-gradient(circle at 28% 22%, var(--paper-deep), var(--paper) 62%);
+    padding:5rem 1.5rem;
+  }
+  .hero-motif{ position:absolute; inset:0; pointer-events:none; color:var(--wine); }
+  .hero-motif svg{ position:absolute; fill:none; stroke:currentColor; stroke-width:1; stroke-linecap:round; stroke-linejoin:round; opacity:.07; }
+  .m1{ width:190px; height:190px; top:6%; left:4%; transform:rotate(-14deg); }
+  .m2{ width:150px; height:150px; bottom:8%; right:6%; transform:rotate(9deg); }
+  .m3{ width:110px; height:110px; top:58%; left:82%; transform:rotate(24deg); }
+
+  .hero-content{ position:relative; z-index:2; animation:fadeUp .9s ease both; }
+  .eyebrow{ font-family:'Inter', sans-serif; font-size:.78rem; letter-spacing:.22em; text-transform:uppercase; color:var(--wine); font-weight:600; }
+  .hero-title{ font-family:'Fraunces', serif; font-style:italic; font-weight:500; font-size:clamp(2.75rem,7vw,5.25rem); color:var(--ink); line-height:1.05; letter-spacing:-0.01em; margin:1.25rem 0 .9rem; }
+  .hero-subtitle{ font-family:'Newsreader', serif; font-style:italic; font-weight:400; font-size:clamp(1.1rem,2.4vw,1.5rem); color:var(--ink-soft); margin-bottom:2.25rem; }
+  .hero-ornament{ display:flex; align-items:center; gap:.9rem; width:220px; margin:0 auto 1.75rem; color:var(--wine); }
+  .hero-ornament::before, .hero-ornament::after{ content:''; flex:1; height:1px; background:var(--line); }
+  .hero-date{ font-family:'Inter', sans-serif; font-size:.82rem; letter-spacing:.15em; text-transform:uppercase; color:var(--ink-soft); }
+
+  @keyframes fadeUp{ from{ opacity:0; transform:translateY(18px); } to{ opacity:1; transform:translateY(0); } }
+
+  /* Content */
+  .content-wrapper{ padding:0 1.5rem; }
+  .content-section{ max-width:700px; margin:0 auto; padding:4rem 0; opacity:0; transform:translateY(16px); transition:opacity .7s ease, transform .7s ease; }
+  .content-section.is-visible{ opacity:1; transform:none; }
+  .content-section + .content-section{ border-top:1px solid var(--line); }
+
+  .lead-quote{ font-family:'Fraunces', serif; font-style:italic; font-weight:500; font-size:clamp(1.3rem,2.6vw,1.7rem); text-align:center; line-height:1.55; color:var(--ink); padding:0 .5rem; }
+
+  .section-title{ font-family:'Fraunces', serif; font-weight:600; font-size:clamp(1.8rem,3.4vw,2.5rem); color:var(--ink); margin:0 0 1.75rem; line-height:1.15; position:relative; padding-bottom:.75rem; }
+  .section-title::after{ content:''; position:absolute; left:0; bottom:0; width:48px; height:2px; background:var(--wine); }
+
+  .subsection-title{ font-family:'Fraunces', serif; font-weight:600; font-size:clamp(1.2rem,2.2vw,1.5rem); color:var(--wine-deep); margin:2.25rem 0 1rem; display:flex; align-items:center; gap:.6rem; }
+  .subsection-title .icon{ color:var(--gold); width:.85em; height:.85em; flex-shrink:0; }
+
+  .content-paragraph{ font-size:clamp(1.02rem,1.6vw,1.12rem); color:var(--ink); margin-bottom:1.4rem; line-height:1.8; }
+  .content-paragraph:first-of-type{ font-size:1.18rem; color:var(--ink-soft); font-style:italic; }
+
+  .feature-box{ background:var(--paper-deep); border-left:3px solid var(--wine); border-radius:4px 14px 14px 4px; padding:2rem 2.25rem; margin:2.5rem 0; }
+  .feature-box h3{ font-family:'Fraunces', serif; color:var(--wine-deep); font-size:1.35rem; margin-bottom:.75rem; font-weight:600; }
+  .feature-box p{ color:var(--ink); line-height:1.75; margin:0; }
+
+  .content-list{ margin:1.5rem 0; padding:0; list-style:none; }
+  .content-list li{ position:relative; padding-left:1.5rem; margin-bottom:.85rem; line-height:1.65; }
+  .content-list li::before{ content:''; position:absolute; left:0; top:.6em; width:6px; height:6px; background:var(--wine); transform:rotate(45deg); }
+
+  .featured-quote{ font-family:'Fraunces', serif; font-style:italic; font-size:clamp(1.15rem,2vw,1.35rem); color:var(--ink); line-height:1.7; border-left:2px solid var(--gold); padding:.25rem 0 .25rem 1.5rem; margin:2.5rem 0; }
+
+  .elegant-divider{ display:flex; align-items:center; gap:1rem; margin:3rem 0; color:var(--wine); }
+  .elegant-divider::before, .elegant-divider::after{ content:''; flex:1; height:1px; background:var(--line); }
+  .elegant-divider .icon{ width:1.3rem; height:1.3rem; flex-shrink:0; }
+
+  .article-footer{ background:var(--ink); color:var(--paper-deep); text-align:center; padding:3.5rem 2rem; margin-top:1rem; }
+  .article-footer .icon{ color:var(--gold); width:1.4rem; height:1.4rem; margin-bottom:1rem; }
+  .article-footer p{ font-family:'Newsreader', serif; font-style:italic; font-size:1.02rem; max-width:520px; margin:0 auto; line-height:1.7; opacity:.9; }
+
+  @media (max-width:768px){
+    .content-section{ padding:2.75rem 0; }
+    .content-wrapper{ padding:0 1.25rem; }
+    .feature-box{ padding:1.5rem; }
+    .hero-cover{ padding:4rem 1.25rem; }
+  }
+
+  @media print{
+    body{ background:#fff; }
+    .article-container{ box-shadow:none; max-width:none; }
+    .hero-cover{ min-height:100vh; page-break-after:always; }
+    .content-section{ page-break-inside:avoid; opacity:1; transform:none; }
+    .scroll-indicator, .hero-motif{ display:none; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:.01ms !important; transition-duration:.01ms !important; }
+  }
+
+  *:focus{ outline:2px solid var(--wine); outline-offset:2px; }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="tulip" viewBox="0 0 24 24">
+    <path d="M12 3.2c-2.1 0-3.8 1.9-3.8 4.3 0 1.9 1.1 3.4 2.7 4.1.5.2.9.6.9 1.1v.3"/>
+    <path d="M12 3.2c2.1 0 3.8 1.9 3.8 4.3 0 1.9-1.1 3.4-2.7 4.1-.5.2-.9.6-.9 1.1v.3"/>
+    <path d="M12 3.2v9.9"/>
+    <path d="M12 14.6c0-1.7 1.4-2.6 3-2.9"/>
+    <path d="M12 14.6c0-1.7-1.4-2.6-3-2.9"/>
+    <path d="M12 14.6v6.2"/>
+  </symbol>
+</svg>
+
+<div class="scroll-indicator"><div class="scroll-progress" id="scrollProgress"></div></div>
+
+<article class="article-container">
+  <header class="hero-cover">
+    <div class="hero-motif" aria-hidden="true">
+      <svg class="m1"><use href="#tulip"/></svg>
+      <svg class="m2"><use href="#tulip"/></svg>
+      <svg class="m3"><use href="#tulip"/></svg>
+    </div>
+    <div class="hero-content">
+      <div class="eyebrow">A Historical Report</div>
+      <h1 class="hero-title">The Unbreakable Legacy</h1>
+      <p class="hero-subtitle">Kurdish Women Who Shaped History</p>
+      <div class="hero-ornament"><svg class="icon"><use href="#tulip"/></svg></div>
+      <div class="hero-date">2025</div>
+    </div>
+  </header>
+
+  <div class="content-wrapper">
+
+    <section class="content-section">
+      <div class="lead-quote">In a world that still struggles to make room for women's voices, Kurdish women have spent centuries building something extraordinary: a legacy of strength, leadership, and quiet, unshakeable resilience.</div>
+    </section>
+
+    <section class="content-section">
+      <h2 class="section-title">The Language of Equality</h2>
+      <p class="content-paragraph">Kurdish carries something rare inside its grammar. The language uses the same pronoun for both men and women, so gender simply isn't built into the way people are addressed. It's a small detail with a big implication: this is a culture where a person's worth was never meant to hinge on which pronoun they got.</p>
+      <p class="content-paragraph">That equality shows up loudest in the words Kurdish people have chanted across mountains and valleys for generations: Jin, Jiyan, Azadî — Woman, Life, Freedom. It isn't just a protest chant. It's closer to a philosophy, one that has quietly shaped Kurdish society long before it became a rallying cry the rest of the world recognized. The phrase reached a much wider audience in 2022, when it became the anthem of the protests that spread across Iran, but its roots go back generations further than any hashtag ever could.</p>
+      <div class="elegant-divider"><svg class="icon"><use href="#tulip"/></svg></div>
+    </section>
+
+    <section class="content-section">
+      <h2 class="section-title">Pioneers Who Refused to Be Silent</h2>
+
+      <h3 class="subsection-title"><svg class="icon"><use href="#tulip"/></svg>Hafsa Khan Naqib: The Chief Who Commanded Respect</h3>
+      <p class="content-paragraph">Hafsa Khan Naqib ruled at a time when women almost never held real political power, and she did it with enough authority that European visitors couldn't help but write about her. One account describes her husband standing up when she walked into a room. Not a small gesture in that era, and not one given lightly. It was a sign of the kind of respect she'd earned as a leader in her own right, not just as someone's wife.</p>
+
+      <h3 class="subsection-title"><svg class="icon"><use href="#tulip"/></svg>Lady Adela Jaff: The Diplomat and Strategist</h3>
+      <p class="content-paragraph">People called her the Princess of Kurdistan, and Lady Adela Jaff earned every bit of that title. She moved through complicated political terrain most people would find impossible, negotiated directly with British officials, and managed territory that stretched across huge parts of the region. Her palace wasn't just a home. It was where the real decisions got made.</p>
+
+      <h3 class="subsection-title"><svg class="icon"><use href="#tulip"/></svg>Leyla Qasim: The Revolutionary Who Never Wavered</h3>
+      <p class="content-paragraph">Leyla Qasim was only 22 when she became a symbol of what real courage looks like. Iraqi authorities captured her in 1974 for her role in Kurdish resistance activities, and she faced her execution without asking for mercy. Instead, her final words were about her love for Kurdistan. That choice, made in her last moments, is why people still speak her name today.</p>
+    </section>
+
+    <section class="content-section">
+      <h2 class="section-title">Modern Warriors: From Battlefield to Boardroom</h2>
+
+      <div class="feature-box">
+        <h3>The PKK Fighters: Redefining Combat</h3>
+        <p>Nowhere is Kurdish women's strength more visible than on the front lines. Women fighting in the PKK and other Kurdish organizations have broken apart old assumptions about who gets to fight and who gets to lead. They serve alongside men as equals, and plenty of them command units and shape strategy that decides how entire campaigns play out.</p>
+      </div>
+
+      <p class="content-paragraph">These women didn't just show up to fight. They changed what the word warrior even means. Their presence on the battlefield made the rest of the world rethink gender roles in what used to be the most stubbornly male space of all.</p>
+
+      <h3 class="subsection-title"><svg class="icon"><use href="#tulip"/></svg>Leyla Zana: The Voice That Wouldn't Be Silenced</h3>
+      <p class="content-paragraph">Leyla Zana became the first Kurdish woman elected to the Turkish Parliament in 1991, and she marked the occasion by speaking Kurdish during her oath of office. It caused an uproar. Kurdish was forbidden in that setting, and using it anyway cost her freedom; she was later imprisoned for it. But it also turned her into an internationally recognized symbol of Kurdish rights and women's place in politics.</p>
+    </section>
+
+    <section class="content-section">
+      <h2 class="section-title">A Different Path: Strength Without Compromise</h2>
+      <p class="content-paragraph">Kurdish women have found a path that sidesteps the usual either-or arguments people have about women's rights. They've built real independence and real influence without cutting ties to their culture or their families. That balance alone pushes back on the idea that tradition and progress have to be opposites.</p>
+
+      <p class="content-paragraph">In Kurdish society, you'll find women serving as:</p>
+      <ul class="content-list">
+        <li>Military commanders leading troops in combat</li>
+        <li>Business leaders managing major enterprises</li>
+        <li>Political figures negotiating international agreements</li>
+        <li>Cultural guardians preserving Kurdish traditions</li>
+        <li>Educators shaping future generations</li>
+        <li>Artists and filmmakers bringing Kurdish stories to a wider world</li>
+      </ul>
+
+      <h3 class="subsection-title"><svg class="icon"><use href="#tulip"/></svg>The Peshmerga Women: Modern Amazons</h3>
+      <p class="content-paragraph">The female Peshmerga fighters might be the most visible symbol of Kurdish women's strength right now. They didn't just fold into existing military structures, they helped rebuild them. Their role in the fight against ISIS earned recognition around the world and made one thing clear: courage and tactical skill were never things that belonged to one gender in the first place.</p>
+
+      <h3 class="subsection-title"><svg class="icon"><use href="#tulip"/></svg>Carried Through Cloth and Story</h3>
+      <p class="content-paragraph">Long before any of this made international headlines, Kurdish women were already preserving their culture the quiet way, through weaving and storytelling. Kurdish carpets and kilims carry patterns passed down through generations of women, each one a kind of visual language in its own right. Grandmothers told stories by the fire that carried history forward long before anyone wrote it down. It's a different kind of strength than the ones written about in headlines, but it's just as responsible for the fact that Kurdish identity survived at all.</p>
+    </section>
+
+    <section class="content-section">
+      <h2 class="section-title">Mastoureh Ardalan and the Literary Legacy</h2>
+      <p class="content-paragraph">The 19th century poet Mastoureh Ardalan showed that Kurdish women's strength wasn't only about politics or war. Her poems dealt with love, loss, and Kurdish identity with a depth that shaped the writers who came after her. She's proof that power isn't only about commanding an army or governing land. Sometimes it's about shaping how people feel and think, one poem at a time.</p>
+
+      <h2 class="section-title" style="margin-top:3rem;">The Ripple Effect: Inspiring Beyond Borders</h2>
+      <p class="content-paragraph">The influence of these women reaches well past Kurdish communities. Their stories have shown up in women's rights movements around the world, and they've challenged a lot of assumptions about what's actually possible when a society takes gender equality seriously instead of just talking about it.</p>
+
+      <p class="content-paragraph">Observers looking at Kurdish society from the outside have pointed out something worth noting: when women take an active role in everything from governance to combat, the whole community tends to become more stable and more resilient. Empower women properly, and everyone benefits, not just women.</p>
+
+      <div class="elegant-divider"><svg class="icon"><use href="#tulip"/></svg></div>
+    </section>
+
+    <section class="content-section">
+      <h2 class="section-title">A Living Legacy</h2>
+      <p class="content-paragraph">Today's Kurdish women are still building on everything that came before them. They're starting tech companies, leading medical research, making art that speaks to something universal, and yes, still picking up arms when their communities and values need protecting. They're also raising families across a diaspora that spans continents, finding ways to keep Kurdish language and culture alive in cities their grandmothers never could have imagined living in.</p>
+
+      <p class="content-paragraph">What makes this legacy so powerful is how real it is. This isn't equality that got imported from outside or adopted to look good to the rest of the world. It grew from inside Kurdish culture itself, rooted in language, tradition, and a worldview that never treated strength like it belonged to one gender.</p>
+    </section>
+
+    <section class="content-section">
+      <h2 class="section-title">The Continuing Story</h2>
+      <p class="content-paragraph">The story of Kurdish women is nowhere near finished. It's being written right now by teachers in Dohuk, entrepreneurs in Erbil, fighters still in the mountains, and activists working from cities all over the world. Every generation adds to what the last one built, and together they prove something simple: a society's greatest strength comes from empowering all of its people, not half of them.</p>
+
+      <p class="content-paragraph">The rest of the world is still arguing over questions Kurdish women have been quietly answering for generations. Their story is proof that strength, leadership, and dignity were never gendered traits to begin with, just human ones. It's not only Kurdish history. It's a working example of what's possible when people stop putting limits on each other.</p>
+
+      <div class="featured-quote">Hafsa Khan Naqib once filled a room with quiet authority. Leyla Qasim faced her executioners without asking for mercy. Modern Kurdish women are reshaping battlefields and boardrooms alike. The message running through all of it is the same: real strength doesn't recognize borders, doesn't accept limits, and doesn't believe in barriers it can't eventually move.</div>
+    </section>
+
+  </div>
+
+  <footer class="article-footer">
+    <svg class="icon"><use href="#tulip"/></svg>
+    <p>This report is a small tribute to the Kurdish women who've shaped history through courage, leadership, and a commitment to their people that never wavered.</p>
+  </footer>
+</article>
+
+<script>
+  function updateScrollProgress(){
+    const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+    document.getElementById('scrollProgress').style.width = scrolled + '%';
+  }
+  window.addEventListener('scroll', updateScrollProgress);
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('is-visible');
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('.content-section').forEach(section => observer.observe(section));
+
+  document.addEventListener('keydown', function(e){
+    if (e.ctrlKey && e.key === 'p'){ e.preventDefault(); window.print(); }
+  });
+
+  updateScrollProgress();
+</script>
+</body>
+</html>
